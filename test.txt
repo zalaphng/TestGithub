@@ -18,10 +18,8 @@
                     ViewBag.TextSuccess = "Đã thêm thành công!";
                     ViewBag.TextSuccess = "Đã thêm thành công!";
 asfasfasf
-
-asfasfs
 asfsfasfas
-                }
+                }asfasfasf
                 catch (Exception ex)
                 {
                     ViewBag.ErrorMessage = "ERROR:" + ex.Message.ToString();
