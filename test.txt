@@ -12,7 +12,6 @@
                     products.ProductPicture = "Images/" + filename;
                     db.Products.Add(products);
                     db.SaveChanges();
-                    ViewBag.TextSuccess = "Đã thêm thành công!";
                 }
                 catch (Exception ex)
                 {
