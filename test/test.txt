@@ -1,4 +1,6 @@
-        [HttpPost]
+JHinaslgknalsg        
+asglkasl;gas
+[HttpPost]
         public ActionResult CreateNewProduct(HttpPostedFileBase file, Products products)
         {
             if (file != null && file.ContentLength > 0)
