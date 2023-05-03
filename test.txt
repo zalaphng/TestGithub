@@ -1,0 +1,30 @@
+        [HttpPost]
+        public ActionResult CreateNewProduct(HttpPostedFileBase file, Products products)
+        {
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Images"),
+                                               Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    string filename = file.FileName;
+                    ViewBag.Message = "File uploaded successfully";
+                    products.ProductPicture = "Images/" + filename;
+                    db.Products.Add(products);
+                    db.SaveChanges();
+                    ViewBag.TextSuccess = "Đã thêm thành công!";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrorMessage = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.ErrorMessage = "You have not specified a file.";
+                ViewBag.Message = "You have not specified a file.";
+            }
+            var productTypes = db.ProductTypes.ToList();
+            SelectList selectList = new SelectList(productTypes, "id", "ProductTypeName");
+            ViewBag.ProductTypes = selectList;
+            return View();
+        }
